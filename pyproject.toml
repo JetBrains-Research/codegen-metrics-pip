@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "codegen-metrics"
+version = "0.1.0"
+description = "Package for computation of code generation metrics"
+authors = [
+    "Egor Bogomolov <egor.bogomolov@jetbrains.com>",
+    "Mikhail Evtikhiev <mikhail.evtikhiev@jetbrains.com>",
+]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "codegen_metrics"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+typed-ast = "^1.5.5"
+dpu-utils = "^0.6.1"
+rouge-score = "^0.1.2"
+networkx = "^3.1"
+tree-sitter = "^0.20.2"
+editdistance = "^0.6.2"
+func-timeout = "^4.3.5"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target-version = ["py310"]
+
+[tool.isort]
+line_length = 120
+py_version = 310
+profile = "black"
+
