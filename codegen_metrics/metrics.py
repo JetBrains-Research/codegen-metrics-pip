@@ -1,7 +1,7 @@
-from nltk.translate.meteor_score import single_meteor_score as meteor_impl
 from rouge_score import rouge_scorer
 
 from .codebleu.codebleu import codebleu as codebleu_impl
+from .meteor.meteor import meteor as meteor_impl
 from .ruby.similarity import ruby as ruby_impl
 from .ruby.util import tokenize_tranx
 from .sacrebleu_code.sacrebleu_methods.compat import sentence_bleu, sentence_chrf
