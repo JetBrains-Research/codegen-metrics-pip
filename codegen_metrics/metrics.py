@@ -7,27 +7,27 @@ from .ruby.util import tokenize_tranx
 from .sacrebleu_code.sacrebleu_methods.compat import sentence_bleu, sentence_chrf
 
 
-def rougel(snippet: str, hypothesis: str) -> float:
-    return rouge_scorer._score_lcs(tokenize_tranx(snippet), tokenize_tranx(hypothesis)).fmeasure
+def rougel(reference_code: str, generated_code: str) -> float:
+    return rouge_scorer._score_lcs(tokenize_tranx(reference_code), tokenize_tranx(generated_code)).fmeasure
 
 
-def codebleu(snippet: str, hypothesis: str, weights: tuple[float] = (0.1, 0.1, 0.4, 0.4)) -> float:
-    return codebleu_impl(snippet, hypothesis, weights=weights)
+def codebleu(reference_code: str, generated_code: str, weights: tuple[float] = (0.1, 0.1, 0.4, 0.4)) -> float:
+    return codebleu_impl(reference_code, generated_code, weights=weights)
 
 
-def ruby(snippet: str, hypothesis: str) -> float:
-    return ruby_impl(hypothesis, snippet)[0]
+def ruby(reference_code: str, generated_code: str) -> float:
+    return ruby_impl(generated_code, reference_code)[0]
 
 
-def meteor(snippet: str, hypothesis: str) -> float:
-    return meteor_impl(tokenize_tranx(snippet), tokenize_tranx(hypothesis))
+def meteor(reference_code: str, generated_code: str) -> float:
+    return meteor_impl(tokenize_tranx(reference_code), tokenize_tranx(generated_code))
 
 
 # chrF
-def chrf(snippet: str, hypothesis: str) -> float:
-    return sentence_chrf(hypothesis, [snippet]).score / 100
+def chrf(reference_code: str, generated_code: str) -> float:
+    return sentence_chrf(generated_code, [reference_code]).score / 100
 
 
 # BLEU
-def bleu(snippet: str, hypothesis: str) -> float:
-    return sentence_bleu(hypothesis, [snippet]).score / 100
+def bleu(reference_code: str, generated_code: str) -> float:
+    return sentence_bleu(generated_code, [reference_code]).score / 100
