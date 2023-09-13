@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "codegen-metrics"
-version = "0.1.0"
+version = "0.2.0"
 description = "Package for computation of code generation metrics"
 authors = [
     "Egor Bogomolov <egor.bogomolov@jetbrains.com>",
