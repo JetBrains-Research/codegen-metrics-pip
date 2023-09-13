@@ -9,6 +9,7 @@ authors = [
 license = "MIT"
 readme = "README.md"
 packages = [{include = "codegen_metrics"}]
+homepage = "https://github.com/JetBrains-Research/codegen-metrics-pip"
 
 [tool.poetry.dependencies]
 python = ">=3.9 <3.13"
